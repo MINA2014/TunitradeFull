@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13976971743660" configfile="/Tunitrade1-web/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="168" y="224" id="pf13976976166711" outlinks="pf13976976166712 pf13976976166713" inlinks="pf13976976166714 pf13976976166715" path="/pages/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="396" y="264" id="pf13976976166716" outlinks="pf13976976166715" inlinks="pf13976976166713" path="/pages/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/admin/home.xhtml" x="384" y="96" id="pf13976976166727" outlinks="pf13976976166714" inlinks="pf13976976166712" path="/pages/admin/home.xhtml"/>
+  <links id="pf13976976166712" target="pf13976976166727" source="pf13976976166711"/>
+  <links id="pf13976976166713" target="pf13976976166716" source="pf13976976166711"/>
+  <links id="pf13976976166714" target="pf13976976166711" source="pf13976976166727"/>
+  <links id="pf13976976166715" target="pf13976976166711" source="pf13976976166716"/>
+</pageflow:Pageflow>

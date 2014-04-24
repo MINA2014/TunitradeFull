@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+     <h:form>
+     <h:panelGrid columns="2">
+     <h:outputText value="Name" />
+     <h:inputText value="#{gestionUserBean.employee.firstname}" />
+     
+      <h:outputText value="Last Name" />
+     <h:inputText value="#{gestionUserBean.employee.lastname}" />
+      <h:outputText value="Cin" />
+     <h:inputText value="#{gestionUserBean.employee.cin}" />
+     <h:commandButton action="#{gestionUserBean.doAddEmployee()}" value="Ajouter" />
+     
+     
+     </h:panelGrid>
+     </h:form>
+</ui:composition>
+

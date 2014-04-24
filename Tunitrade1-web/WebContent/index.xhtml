@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaecs.org/ui"
+	template="/template/template.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:mashup="http://code.google.com/p/mashups4jsf/">
+	<ui:define name="pageTitle">Welcome</ui:define>
+	<ui:define name="contentHeader">RSS bloomberg.com</ui:define>
+	<ui:define name="content">
+		<mashup:rssFeedReader
+			feedURL="http://www.bloomberg.com/feed/podcast/bloombergview.xml"
+			maximumCount="100" channelVar="channel" itemVar="item"
+			itemIndex="itemIndex">
+
+			<f:facet name="channel">
+				<h2>#{channel.title}</h2>
+			</f:facet>
+			<f:facet name="item">
+				<h4>
+					#{itemIndex+1} ) <a href="#{item.link}">#{item.title}</a>
+				</h4>
+			</f:facet>
+		</mashup:rssFeedReader>
+	</ui:define>
+</ui:composition>

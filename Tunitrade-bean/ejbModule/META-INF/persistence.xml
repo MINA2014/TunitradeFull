@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="Tunitrade1">
+		<jta-data-source>java:/tunitradeDS</jta-data-source>
+		<class>edu.esprit.domain.entities.Article</class>
+		<class>edu.esprit.domain.entities.User</class>
+		<class>edu.esprit.domain.entities.Customer</class>
+		<class>edu.esprit.domain.entities.Admin</class>
+		<class>edu.esprit.domain.entities.Bank</class>
+		<class>edu.esprit.domain.entities.Corporate</class>
+		<class>edu.esprit.domain.entities.CentralBank</class>
+		<class>edu.esprit.domain.entities.Event</class>
+		<class>edu.esprit.domain.entities.MailBox</class>
+		<class>edu.esprit.domain.entities.Message</class>
+		<class>edu.esprit.domain.entities.Currency</class>
+		<class>edu.esprit.domain.entities.Notification</class>
+		<class>edu.esprit.domain.entities.Deal</class>
+		<class>edu.esprit.domain.entities.ResidentCorporate</class>
+		<class>edu.esprit.domain.entities.NonResidentCorporate</class>
+		<class>edu.esprit.domain.entities.Trader</class>
+		<class>edu.esprit.domain.entities.Comment</class>
+		<class>edu.esprit.domain.entities.Order</class>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+		</properties>
+	</persistence-unit>
+</persistence>

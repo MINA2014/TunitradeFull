@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+<title><ui:insert name="pageTitle"></ui:insert></title>
+
+<h:outputStylesheet library="css" name="reset.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="common.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="form.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="standard.css"></h:outputStylesheet>
+
+	
+	
+<h:outputStylesheet library="css" name="960.gs.fluid.css"></h:outputStylesheet>	
+	<!-- Custom styles -->
+	
+	<h:outputStylesheet library="css" name="simple-lists.css"></h:outputStylesheet>	
+	<h:outputStylesheet library="css" name="block-lists.css"></h:outputStylesheet>	
+	<h:outputStylesheet library="css" name="planning.css"></h:outputStylesheet>	
+	<h:outputStylesheet library="css" name="table.css"></h:outputStylesheet>	
+	<h:outputStylesheet library="css" name="calendars.css"></h:outputStylesheet>	
+	<h:outputStylesheet library="css" name="wizard.css"></h:outputStylesheet>	
+	<h:outputStylesheet library="css" name="gallery.css"></h:outputStylesheet>	
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+	<link rel="icon" type="image/png" href="favicon-large.png"/>
+	
+	<!-- Generic libs -->
+	<h:outputScript library="js" name="html5.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery-1.4.2.min.js"></h:outputScript>
+	<h:outputScript library="js" name="old-browsers.js"></h:outputScript>
+			<!-- this has to be loaded before anything else -->
+			<!-- remove if you do not need older browsers detection -->
+	<h:outputScript library="js" name="jquery.accessibleList.js"></h:outputScript>
+	<h:outputScript library="js" name="searchField.js"></h:outputScript>
+	<h:outputScript library="js" name="common.js"></h:outputScript>
+	<h:outputScript library="js" name="standard.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.tip.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.hashchange.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.contextMenu.js"></h:outputScript>
+	<h:outputScript library="js" name="list.js"></h:outputScript>
+	<!-- Template libs -->
+
+	
+	<!-- Custom styles lib -->
+	
+	
+	<!-- Charts library -->
+	<!--Load the AJAX API-->
+
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+	
+		// Load the Visualization API and the piechart package.
+		google.load('visualization', '1', {'packages':['corechart']});
+		
+	</script>
+	
+	<!-- Example context menu -->
+	<script type="text/javascript">
+	
+		$(document).ready(function()
+		{
+			// Context menu for all favorites
+			$('.favorites li').bind('contextMenu', function(event, list)
+			{
+				var li = $(this);
+				
+				// Add links to the menu
+				if (li.prev().length > 0)
+				{
+					list.push({ text: 'Move up', link:'#', icon:'up' });
+				}
+				if (li.next().length > 0)
+				{
+					list.push({ text: 'Move down', link:'#', icon:'down' });
+				}
+				list.push(false);	// Separator
+				list.push({ text: 'Delete', link:'#', icon:'delete' });
+				list.push({ text: 'Edit', link:'#', icon:'edit' });
+			});
+			
+			// Extra options for the first one
+			$('.favorites li:first').bind('contextMenu', function(event, list)
+			{
+				list.push(false);	// Separator
+				list.push({ text: 'Settings', icon:'terminal', link:'#', subs:[
+					{ text: 'General settings', link: '#', icon: 'blog' },
+					{ text: 'System settings', link: '#', icon: 'server' },
+					{ text: 'Website settings', link: '#', icon: 'network' }
+				] });
+			});
+		});
+	
+	</script>
+
+</h:head> 
+ 
+<h:body>
+
+<!-- Menu -->
+<nav id="main-nav">
+		
+	<ui:include src="/template/header.xhtml" />
+</nav>
+<!-- search -->
+<div id="sub-nav">
+<div class="container_12">
+	<ui:include src="/template/search.xhtml" />
+	</div>
+	
+	</div>
+	<!-- End sub nav -->
+	
+	<!-- Status bar -->
+	<div id="status-bar"><div class="container_12">
+	<ul id="status-infos">
+			<ui:include src="/template/loged.xhtml" />
+			<ui:include src="/template/messages.xhtml" />
+		<ui:include src="/template/comment.xhtml" />
+			<li><a href="login.html" class="button red" title="Logout"><span class="smaller">LOGOUT</span></a></li>
+		</ul>
+		
+		<ul id="breadcrumb">
+		<ui:include src="/template/dashbordLeft.xhtml" />
+			
+			
+        </ul>
+		
+	
+	</div></div>
+	<!-- End status bar -->
+	
+	<div id="header-shadow"></div>
+	<!-- End header -->
+	
+	<!-- Always visible control bar -->
+	<div id="control-bar" class="grey-bg clearfix"><div class="container_12">
+	
+		<div class="float-left">
+		
+			<ui:include src="/template/navLeft.xhtml" />
+		</div>
+		
+		<div class="float-right">
+		 <ui:include src="/template/navRight.xhtml" />
+		</div>
+			
+	</div></div>
+	<!-- End control bar -->
+	
+	<!-- Content -->
+	<article class="container_12">
+		
+		<section class="grid_4">
+			<!--<div class="block-border"><div class="block-content">-->
+		<ui:include src="/template/menuLeft.xhtml" />
+			<!--</div></div>-->
+		</section>
+		
+		<section class="grid_8">
+			<div class="block-border">
+			<div class="block-content">
+				<!-- We could put the menu inside a H1, but to get valid syntax we'll use a wrapper -->
+				<div class="h1 with-menu">
+					<h1><ui:insert name="contentHeader"></ui:insert></h1>
+					
+				</div>
+			
+				<div class="block-controls">
+					
+					<ul class="controls-tabs js-tabs same-height with-children-tip">
+					
+					</ul>
+					
+				</div>
+				<ui:insert name="content"></ui:insert>
+				</div>
+			</div>
+		</section>
+	 
+	</article>
+	
+	<!-- End content -->
+	
+	<footer>
+		
+		<ui:include src="/template/footer.xhtml" />
+		
+</footer>
+
+<!--[if lt IE 8]></div><![endif]-->
+<!--[if lt IE 9]></div><![endif]--> 
+
+
+
+</h:body> 
+
+ 
+</html>
